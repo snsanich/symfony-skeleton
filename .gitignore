@@ -1,0 +1,39 @@
+# OS Spefific files
+[._]*.s[a-w][a-z]
+[._]s[a-w][a-z]
+*.un~
+Session.vim
+.netrwhist
+*~
+.DS_Store
+.AppleDouble
+.LSOverridew
+Icon
+._*
+.Spotlight-V100
+.Trashes
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# IDE and dev tools specific files
+.idea
+*.iml
+.vagrant
+node_modules
+
+# Symfony specific
+/bin/*
+!bin/console
+/vendor
+/app/cache
+/app/logs
+/app/bootstrap.php.cache
+/var
+/app/config/parameters.yml
+
+# Build artifacts
+/builds/
+
