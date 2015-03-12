@@ -28,6 +28,9 @@ node_modules
 /bin/*
 !bin/console
 /vendor
+/app/cache
+/app/logs
+/app/bootstrap.php.cache
 /var
 /app/config/parameters.yml
 
