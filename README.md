@@ -1,6 +1,20 @@
 General Backend Template Project
 ===================================
 
+## What included
+
+This is our day-to-day backend dev stack
+
+ - Configured PHP 5.6
+ - Configured Nginx
+ - Configured PostgreSQL
+ - Symfony 2.7 standard edition
+ - Doctrine ORM 2.4
+
+This skeleton includes several optimizations:
+
+ - Enabled APCu cache for Doctrine and Validator (only in prod environment)
+
 ## Required software
 
  - VirtualBox
