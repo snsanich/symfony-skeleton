@@ -1,0 +1,6 @@
+---
+app_name: "example"
+
+app_user: "{{app_name}}"
+app_group: "{{app_user}}"
+

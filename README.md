@@ -9,13 +9,7 @@ General Backend Template Project
  - [Vagrant Host Manager](https://github.com/smdahlen/vagrant-hostmanager) for handling local DNS and DHCP instead of static IP
  - [Ansible](http://docs.ansible.com/intro_installation.html)
 
-### Vagrant plugins
-You can install all required vagrant plugins by running this:
-
-```
-$ vagrant plugin install vagrant-host-shell
-$ vagrant plugin install vagrant-hostmanager
-```
+### Vagrant and plugins
 
 `vagrant-host-shell` will check that you have installed ansible galaxy roles before provisioning
 
@@ -32,5 +26,8 @@ To make life less painful, we suggest to use DHCP instead of static IPs for priv
 hostname = 'example.vagrant'
 ```
 
-*NOTE*: Since this vagrantfile uses DHCP, plese checkout [this issue](https://github.com/mitchellh/vagrant/issues/3083) in Vagrant bug tracker.
+*NOTE*: Since this vagrantfile uses DHCP, plese checkout [this issue](https://github.com/mitchellh/vagrant/issues/3083) in Vagrant bug tracker. If your virtual machine is not starts, you can use workaround from this topic:
 
+```
+VBoxManage dhcpserver remove --netname HostInterfaceNetworking-vboxnet0
+```
