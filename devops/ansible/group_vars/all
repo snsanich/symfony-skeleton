@@ -4,3 +4,13 @@ app_name: "example"
 app_user: "{{app_name}}"
 app_group: "{{app_user}}"
 
+apt_keys:
+ - "http://www.dotdeb.org/dotdeb.gpg"
+
+apt_repositories:
+ - "deb http://packages.dotdeb.org wheezy-php56 all"
+ - "deb-src http://packages.dotdeb.org wheezy-php56 all"
+
+php_extensions:
+ - php5-apcu
+ - php5-pgsql

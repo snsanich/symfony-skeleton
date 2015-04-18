@@ -3,6 +3,7 @@
    roles:
     - isoft.common
     - isoft.php
+    - zenoamaro.postgresql
 
  - hosts: vagrant
    roles:
