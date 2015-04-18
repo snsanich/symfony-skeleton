@@ -15,4 +15,4 @@ node_modules
 /vendor/
 /bin/
 /composer.phar
-
+/web/bundles/
