@@ -95,8 +95,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         ansible.verbose =
           case ENV['VAGRANT_LOG']
             when 'debug' then 'vvvv'
-            when 'info' then 'vvv'
-            else 'v'
+            when 'info' then 'v'
+            else ''
           end
       end
 

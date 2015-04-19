@@ -45,3 +45,7 @@ hostname = 'example.vagrant'
 ```
 VBoxManage dhcpserver remove --netname HostInterfaceNetworking-vboxnet0
 ```
+
+### Ansible verbocity level
+
+If you want to debug your ansible provisioner, you can just run `vagrant provision --debug`. Also you can specify verbosity level via `VAGRANT_LOG` env variable (`info` or `debug`)
