@@ -4,6 +4,17 @@
     - isoft.common
     - isoft.php
     - zenoamaro.postgresql
+    - isoft.nginx
+
+   # TODO: this should be handled via zenoamaro.postgresql
+   tasks:
+    - name: postgresql - create user
+      sudo_user: postgres
+      postgresql_user:  user={{ app_user }} password={{ app_database_password }}
+
+    - name: postgresql - create db
+      sudo_user: postgres
+      postgresql_db: name={{ app_database_name }} owner={{app_user}}
 
  - hosts: vagrant
    roles:

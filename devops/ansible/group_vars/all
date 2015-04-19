@@ -4,6 +4,8 @@ app_name: "example"
 app_user: "{{app_name}}"
 app_group: "{{app_user}}"
 
+app_path: "/srv"
+
 apt_keys:
  - "http://www.dotdeb.org/dotdeb.gpg"
 
@@ -14,3 +16,23 @@ apt_repositories:
 php_extensions:
  - php5-apcu
  - php5-pgsql
+
+php_fpm_pools:
+ - name: "{{app_name}}"
+   user: "{{app_user}}"
+   group: "{{app_group}}"
+
+postgresql_user_map:
+ - name: "app_user"
+   user: "{{app_user}}"
+   pg_user: "{{app_user}}"
+
+postgresql_authentication:
+ - type: local
+   user: "{{app_user}}"
+   method: ident
+   database: all
+
+nginx_server_name: "{{app_name}}"
+nginx_root_dir: "{{app_path}}/web"
+nginx_template_path: "templates/nginx/server.conf.j2"
