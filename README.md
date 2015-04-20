@@ -7,7 +7,7 @@ This is our day-to-day backend dev stack
 
  - Configured PHP 5.6
  - Configured Nginx
- - Configured PostgreSQL 9.3 (via [debops.postgresql](https://github.com/zenoamaro/ansible-postgresql))
+ - Configured PostgreSQL 9.3 (via [debops.postgresql](https://github.com/ANXS/postgresql))
  - Symfony 2.7 standard edition
  - Doctrine ORM 2.4
 
@@ -30,7 +30,7 @@ This skeleton includes several optimizations:
 *NOTE*: If galaxy roles list file not exists, this part will be skipped. Path to this file and directory with roles configurable in vagrantfile
 
 ```
-ansible_dir = 'devops/ansible'
+ansible_dir = 'devops'
 galaxy_roles_file = 'galaxy_roles.yml'
 ```
 
