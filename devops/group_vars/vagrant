@@ -2,5 +2,4 @@
 app_user: "vagrant"
 app_path: "/vagrant"
 
-app_database_name: "vagrant"
 app_database_password: "vagrant"

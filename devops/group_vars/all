@@ -22,16 +22,14 @@ php_fpm_pools:
    user: "{{app_user}}"
    group: "{{app_group}}"
 
-postgresql_user_map:
- - name: "app_user"
-   user: "{{app_user}}"
-   pg_user: "{{app_user}}"
+postgresql_databases:
+ - name: "{{app_name}}_db"
+ - name: "{{app_name}}_db_test"
 
-postgresql_authentication:
- - type: local
-   user: "{{app_user}}"
-   method: ident
-   database: all
+postgresql_users:
+ - name: "{{app_user}}"
+   pass: "{{app_database_password}}"
+   encrypted: no
 
 nginx_server_name: "{{app_name}}"
 nginx_root_dir: "{{app_path}}/web"
