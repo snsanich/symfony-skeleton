@@ -63,7 +63,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
       # Setup Ansible provisioning
       node_config.vm.provision "ansible" do |ansible|
-        ansible.playbook = "#{ansible_dir}/provision.yml"
+        ansible.playbook = "#{ansible_dir}/deploy.yml"
         ansible.host_key_checking = false
         ansible.sudo = true
         ansible.limit = node[:name]

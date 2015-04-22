@@ -9,7 +9,7 @@ This is our day-to-day backend dev stack
  - Configured Nginx
  - Configured PostgreSQL 9.3 (via [debops.postgresql](https://github.com/ANXS/postgresql))
  - Symfony 2.7 standard edition
- - Doctrine ORM 2.4
+ - Doctrine ORM 2.5
 
 This skeleton includes several optimizations:
 
@@ -49,3 +49,8 @@ VBoxManage dhcpserver remove --netname HostInterfaceNetworking-vboxnet0
 ### Ansible verbocity level
 
 If you want to debug your ansible provisioner, you can just run `vagrant provision --debug`. Also you can specify verbosity level via `VAGRANT_LOG` env variable (`info` or `debug`)
+
+## Development
+
+To prepare your local dev environment just run `vagrant up`. All actions to setup projects should be automated and ideally shouldn't require any manual actions.
+

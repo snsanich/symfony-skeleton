@@ -3,3 +3,5 @@ app_user: "vagrant"
 app_path: "/vagrant"
 
 app_database_password: "vagrant"
+
+app_secret_key: "kJ5N0hM8BPhMvGPE2URNvyjJW2"
