@@ -54,3 +54,6 @@ If you want to debug your ansible provisioner, you can just run `vagrant provisi
 
 To prepare your local dev environment just run `vagrant up`. All actions to setup projects should be automated and ideally shouldn't require any manual actions.
 
+### XDebug
+
+This project template provides simple remote debugging with xdebug. To use xdebug sessions verify that your IDE KEY is `PHPSTORM` and xdebug port is `9009`.
