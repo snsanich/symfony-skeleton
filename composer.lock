@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "f879c2534d6e370ba25640e36cb52a39",
+    "hash": "f2730d462a6dc724256168395efbaaed",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1979,16 +1979,16 @@
         },
         {
             "name": "fabpot/php-cs-fixer",
-            "version": "v1.7",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfPHP/PHP-CS-Fixer.git",
-                "reference": "6425aeb97ab921371182712a18c280d546e7769b"
+                "reference": "9e212ed7f598929d491563d01d221155e358a2a3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfPHP/PHP-CS-Fixer/zipball/6425aeb97ab921371182712a18c280d546e7769b",
-                "reference": "6425aeb97ab921371182712a18c280d546e7769b",
+                "url": "https://api.github.com/repos/FriendsOfPHP/PHP-CS-Fixer/zipball/9e212ed7f598929d491563d01d221155e358a2a3",
+                "reference": "9e212ed7f598929d491563d01d221155e358a2a3",
                 "shasum": ""
             },
             "require": {
@@ -2009,6 +2009,11 @@
                 "php-cs-fixer"
             ],
             "type": "application",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0-dev"
+                }
+            },
             "autoload": {
                 "psr-4": {
                     "Symfony\\CS\\": "Symfony/CS/"
@@ -2029,7 +2034,7 @@
                 }
             ],
             "description": "A script to automatically fix Symfony Coding Standard",
-            "time": "2015-04-16 07:21:30"
+            "time": "2015-04-22 08:14:17"
         },
         {
             "name": "sebastian/diff",
@@ -2138,7 +2143,7 @@
         "symfony/symfony": 10,
         "doctrine/migrations": 20,
         "doctrine/doctrine-migrations-bundle": 20,
-        "fabpot/php-cs-fixer": 0
+        "fabpot/php-cs-fixer": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
