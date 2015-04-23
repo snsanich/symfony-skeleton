@@ -1,6 +1,20 @@
 General Backend Template Project
 ===================================
 
+## What included
+
+This is our day-to-day backend dev stack
+
+ - Configured PHP 5.6
+ - Configured Nginx
+ - Configured PostgreSQL 9.3 (via [debops.postgresql](https://github.com/ANXS/postgresql))
+ - Symfony 2.7 standard edition
+ - Doctrine ORM 2.5
+
+This skeleton includes several optimizations:
+
+ - Enabled APCu cache for Doctrine and Validator (only in prod environment)
+
 ## Required software
 
  - VirtualBox
@@ -16,7 +30,7 @@ General Backend Template Project
 *NOTE*: If galaxy roles list file not exists, this part will be skipped. Path to this file and directory with roles configurable in vagrantfile
 
 ```
-ansible_dir = 'devops/ansible'
+ansible_dir = 'devops'
 galaxy_roles_file = 'galaxy_roles.yml'
 ```
 
@@ -31,3 +45,15 @@ hostname = 'example.vagrant'
 ```
 VBoxManage dhcpserver remove --netname HostInterfaceNetworking-vboxnet0
 ```
+
+### Ansible verbocity level
+
+If you want to debug your ansible provisioner, you can just run `vagrant provision --debug`. Also you can specify verbosity level via `VAGRANT_LOG` env variable (`info` or `debug`)
+
+## Development
+
+To prepare your local dev environment just run `vagrant up`. All actions to setup projects should be automated and ideally shouldn't require any manual actions.
+
+### XDebug
+
+This project template provides simple remote debugging with xdebug. To use xdebug sessions verify that your IDE KEY is `PHPSTORM` and xdebug port is `9009`.

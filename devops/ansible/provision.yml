@@ -1,9 +1,0 @@
----
- - hosts: all
-   roles:
-    - isoft.common
-    - isoft.php
-
- - hosts: vagrant
-   roles:
-    - isoft.composer

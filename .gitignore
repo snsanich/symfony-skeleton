@@ -5,15 +5,14 @@
 node_modules
 
 # Symfony specific
-/bin/*
-!bin/console
-/vendor
-/app/cache
-/app/logs
 /app/bootstrap.php.cache
-/var
+/app/cache/*
 /app/config/parameters.yml
-
-# Build artifacts
-/builds/
-
+/app/logs/*
+!app/cache/.gitkeep
+!app/logs/.gitkeep
+/build/
+/vendor/
+/bin/
+/composer.phar
+/web/bundles/

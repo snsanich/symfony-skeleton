@@ -1,7 +1,7 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-ansible_dir = 'devops/ansible'
+ansible_dir = 'devops'
 galaxy_roles_file = "#{ansible_dir}/galaxy_roles.yml"
 
 # Node configs
@@ -35,29 +35,6 @@ require_plugin 'vagrant-vbguest'
 
 # </editor-fold>
 
-# <editor-fold desc="Utilities for system info retrieval" defaultstate="collapsed">
-def set_vm_settings(config, min_cpu, min_memory)
-
-  host = RbConfig::CONFIG['host_os']
-
-  # Give VM 1/4 system memory on the host
-  if host =~ /darwin/
-    cpus = `sysctl -n hw.ncpu`.to_i / 2
-    mem = `sysctl -n hw.memsize`.to_i / 1024 / 1024 / 4
-  elsif host =~ /linux/
-    # meminfo shows KB and we need to convert to MB
-    cpus = `nproc`.to_i / 2
-    mem = `grep 'MemTotal' /proc/meminfo | sed -e 's/MemTotal://' -e 's/ kB//'`.to_i / 1024 / 4
-  else
-    cpus = min_cpu
-    mem = min_memory
-  end
-
-  config.cpus = [cpus, min_cpu].max
-  config.memory = [mem, min_memory].max
-end
-# </editor-fold>
-
 # Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
 VAGRANTFILE_API_VERSION = "2"
 
@@ -86,7 +63,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
       # Setup Ansible provisioning
       node_config.vm.provision "ansible" do |ansible|
-        ansible.playbook = "devops/ansible/provision.yml"
+        ansible.playbook = "#{ansible_dir}/deploy.yml"
         ansible.host_key_checking = false
         ansible.sudo = true
         ansible.limit = node[:name]
@@ -95,17 +72,15 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         ansible.verbose =
           case ENV['VAGRANT_LOG']
             when 'debug' then 'vvvv'
-            when 'info' then 'vvv'
-            else 'v'
+            when 'info' then 'v'
+            else ''
           end
       end
 
       # Customize VM settings
       node_config.vm.provider "virtualbox" do |vbox|
-        # Set 1/2 of available CPU cores (one core on single-core machine)
-        # and 1/4 of available system memory (1024 if system has less than 4Gb of RAM)
-        set_vm_settings(vbox, 1, 1024)
-
+        vbox.cpus = 2
+        vbox.memory = 2048
         # This option makes the NAT engine use the host's resolver mechanisms to handle DNS requests
         vbox.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
       end
