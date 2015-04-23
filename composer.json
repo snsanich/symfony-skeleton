@@ -24,7 +24,8 @@
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3",
-        "behat/behat": "~3.0"
+        "behat/behat": "~3.0",
+        "fabpot/php-cs-fixer": "@stable"
     },
     "scripts": {
         "post-install-cmd": [

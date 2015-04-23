@@ -1,0 +1,2 @@
+#!/bin/bash
+php bin/php-cs-fixer fix
