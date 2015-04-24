@@ -11,14 +11,6 @@
         src=templates/symfony/parameters.yml.j2
         dest={{app_path}}/app/config/parameters.yml
 
-    - name: Create symlink for git hooks folder
-      sudo: no
-      file: >
-        state=link
-        src=../devops/templates/git/hooks
-        dest={{app_path}}/.git/hooks
-        force=yes
-
  - hosts: vagrant
    roles:
     - isoft.composer

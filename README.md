@@ -54,6 +54,17 @@ If you want to debug your ansible provisioner, you can just run `vagrant provisi
 
 To prepare your local dev environment just run `vagrant up`. All actions to setup projects should be automated and ideally shouldn't require any manual actions.
 
+### GIT Hooks
+
+This template includes git hooks to improve development experience and unify coding standards. To enable git hooks, just run `./devops/install_hooks` command.
+
+Hooks included:
+
+ - pre-commit hooks:
+    - Pass changed PHP files thought `php-cs-fixer`
+
+If you don't want to use pre-hooks you can manually remove symlinks or just use `--no-verify`. Please not that this is not so good idea.
+
 ### XDebug
 
 This project template provides simple remote debugging with xdebug. To use xdebug sessions verify that your IDE KEY is `PHPSTORM` and xdebug port is `9009`.
