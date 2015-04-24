@@ -7,7 +7,7 @@ This is our day-to-day backend dev stack
 
  - Configured PHP 5.6
  - Configured Nginx
- - Configured PostgreSQL 9.3 (via [debops.postgresql](https://github.com/ANXS/postgresql))
+ - Configured PostgreSQL 9.3 (via [ANXS.postgresql](https://github.com/ANXS/postgresql))
  - Symfony 2.7 standard edition
  - Doctrine ORM 2.5
 
