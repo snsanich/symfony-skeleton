@@ -7,7 +7,7 @@ This is our day-to-day backend dev stack
 
  - Configured PHP 5.6
  - Configured Nginx
- - Configured PostgreSQL 9.3 (via [debops.postgresql](https://github.com/ANXS/postgresql))
+ - Configured PostgreSQL 9.3 (via [ANXS.postgresql](https://github.com/ANXS/postgresql))
  - Symfony 2.7 standard edition
  - Doctrine ORM 2.5
 
@@ -53,6 +53,17 @@ If you want to debug your ansible provisioner, you can just run `vagrant provisi
 ## Development
 
 To prepare your local dev environment just run `vagrant up`. All actions to setup projects should be automated and ideally shouldn't require any manual actions.
+
+### GIT Hooks
+
+This template includes git hooks to improve development experience and unify coding standards. To enable git hooks, just run `./devops/install_hooks` command.
+
+Hooks included:
+
+ - pre-commit hooks:
+    - Pass changed PHP files thought `php-cs-fixer`
+
+If you don't want to use pre-hooks you can manually remove symlinks or just use `--no-verify`. Please not that this is not so good idea.
 
 ### XDebug
 
