@@ -3,6 +3,7 @@
 *.iml
 .vagrant
 node_modules
+devops/roles/galaxy/*
 
 # Symfony specific
 /app/bootstrap.php.cache
@@ -16,3 +17,5 @@ node_modules
 /bin/
 /composer.phar
 /web/bundles/
+
+!.gitkeep
