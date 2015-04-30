@@ -90,7 +90,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Handle ansible galaxy roles
   if File.exist?("#{galaxy_roles_file}")
     config.vm.provision :host_shell do |host_shell|
-      host_shell.inline = "ansible-galaxy install -r #{galaxy_roles_file} -p #{ansible_dir}/roles -f"
+      host_shell.inline = "ansible-galaxy install -r #{galaxy_roles_file} -p #{ansible_dir}/roles/galaxy -f"
     end
   end
 
