@@ -8,7 +8,7 @@ This is our day-to-day backend dev stack
  - Configured PHP 5.6
  - Configured Nginx
  - PostgreSQL 9.4 (via [ANXS.postgresql](https://github.com/ANXS/postgresql))
- - Symfony 2.7 standard edition
+ - Symfony 2.7 standard edition (without assetic bundle)
  - Doctrine ORM 2.5
 
 This skeleton includes several optimizations:
