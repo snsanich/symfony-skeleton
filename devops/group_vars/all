@@ -26,6 +26,7 @@ php_fpm_pools:
    user: "{{app_user}}"
    group: "{{app_group}}"
 
+postgresql_version: 9.4
 postgresql_databases:
  - name: "{{app_name}}_db"
  - name: "{{app_name}}_db_test"
