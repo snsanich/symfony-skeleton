@@ -10,6 +10,7 @@ This is our day-to-day backend dev stack
  - PostgreSQL 9.4 (via [ANXS.postgresql](https://github.com/ANXS/postgresql))
  - Symfony 2.7 standard edition (without assetic bundle)
  - Doctrine ORM 2.5
+ - FosRestBundle
 
 This skeleton includes several optimizations:
 
