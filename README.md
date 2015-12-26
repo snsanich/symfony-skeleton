@@ -34,9 +34,19 @@ For understanding of how Docker works please read this articles:
  - [Docker Documentation](https://docs.docker.com/engine/misc/)
  - [Docker Compose Documentation](https://docs.docker.com/compose/)
 
+PHP container uses `boot.sh` as default command. It runs migrations ono startup.
+
 ### For MAC OSX users
 
 To run Docker images you should have linux kernel. This could be a tiny problem for Mac OSX users. We recommend to use [docker-machine](https://docs.docker.com/v1.8/installation/mac/) or [dinghy](https://github.com/codekitchen/dinghy).
+
+## Development
+
+### XDebug
+
+This projects template also includes xdebug extensions for remote debugging. To debug your application in PhpStorm you should configure remote server and []set path mapping](https://www.jetbrains.com/phpstorm/help/override-server-path-mappings-dialog.html) to `/srv` directory.
+
+In production environment xdebug is disabled.
 
 ## Deployment
 
