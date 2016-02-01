@@ -50,4 +50,20 @@ In production environment xdebug is disabled.
 
 ## Deployment
 
-TODO
+**Note**: This section doesn't cover config section yet
+
+ - Add your remote host as docker machine:
+
+```
+docker-machine create --driver general --general-ip "$YOUR_REMOTE_HOST" your_host_name
+```
+
+ - Connect docker client to remote docker demon:
+
+```
+eval "$(docker-machine env your_host_name)"
+```
+
+ - Run `docker-compose up -d` and that all!
+
+
