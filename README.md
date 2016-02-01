@@ -1,6 +1,8 @@
 General Backend Template Project
 ===================================
 
+**If you need Vagrant + Ansible version, please check [vagrant_ansible](https://github.com/intellectsoft-uk/symfony-skeleton/tree/vagrant_ansible) branch.**
+
 ## What's included
 
 This is our day-to-day backend dev stack
