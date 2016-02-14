@@ -2,20 +2,20 @@ php:
     build: '.'
     links:
         - database
-    env_file: .env
+    env_file: support/env/dev.env
     volumes:
         - '.:/srv'
 
 front:
-    build: 'devops/dockerfiles/nginx'
+    build: 'front'
     ports:
-        - 0.0.0.0:8080:80
+        - 0.0.0.0:8085:80
     links:
         - php
 
 database:
     image: postgres:9.4
-    env_file: .env
+    env_file: support/env/dev.env
     volumes_from:
         - dbdata
 
