@@ -2,10 +2,11 @@
 
 use Symfony\Component\HttpFoundation\Request;
 
-$loader = require_once __DIR__.'/../app/bootstrap.php.cache';
-
-require_once __DIR__ . '/../app/AppKernel.php';
-//require_once __DIR__.'/../app/AppCache.php';
+/**
+ * @var \Composer\Autoload\ClassLoader $loader
+ */
+$loader = require __DIR__.'/../app/autoload.php';
+require_once __DIR__.'/../app/bootstrap.php.cache';
 
 $env = getenv('SYMFONY_ENV') ?: 'prod';
 $kernel = new AppKernel($env, 'prod' !== $env);
