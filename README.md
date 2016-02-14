@@ -20,9 +20,9 @@ This skeleton includes several optimizations:
 
 ## Required software
 
- - Docker 1.8+
- - Docker-compose 1.5+
- - Ansible2 (for deployment only)
+ - Docker 1.9+
+ - Docker-compose 1.6+
+ - Docker-machine 0.6+
 
 ### Docker
 
@@ -32,7 +32,6 @@ For understanding of how Docker works please read this articles:
 
  - [About Docker](http://www.wintellect.com/devcenter/paulballard/what-developers-need-to-know-about-docker)
  - [Visualizing Docker Containers and Images](http://merrigrove.blogspot.com.by/2015/10/visualizing-docker-containers-and-images.html)
- - [Data-only containers madness](http://container42.com/2014/11/18/data-only-container-madness/)
  - [Docker Documentation](https://docs.docker.com/engine/misc/)
  - [Docker Compose Documentation](https://docs.docker.com/compose/)
 
