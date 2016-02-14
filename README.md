@@ -10,9 +10,10 @@ This is our day-to-day backend dev stack
  - Pre-configured PHP 7 FPM and CLI
  - Pre-configured Nginx 1.9
  - PostgreSQL 9.4
- - Symfony 2.7 standard edition (without assetic)
+ - Symfony 2.8 standard edition
  - Doctrine ORM 2.5
  - FosRestBundle
+ - Behat and PhpSpec as testing frameworks
 
 This skeleton includes several optimizations:
 
