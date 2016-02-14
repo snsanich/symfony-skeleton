@@ -28,6 +28,9 @@
         "fabpot/php-cs-fixer": "~2.0@dev"
     },
     "scripts": {
+        "post-create-project-cmd": [
+            "./devops/scripts/prepare_project"
+        ],
         "post-install-cmd": [
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
