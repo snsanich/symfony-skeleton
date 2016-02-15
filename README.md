@@ -40,7 +40,7 @@ To run Docker images you should have linux kernel. This could be a tiny problem 
 
 ### Aliases
 
-To simplify your life, you can use aliases available in `devops/aliases` shell script. I recommend you to add alias on your `.bashrc` or `.bash_profile`:
+To simplify your life, you can use aliases available in `support/aliases` shell script. I recommend you to add alias on your `.bashrc` or `.bash_profile`:
 
 ```
 alias run="./support/aliases"
@@ -52,7 +52,7 @@ By doing this, you will be able to use short versions of commands:
 run php --version               # prints version of php running in container
 run console --version           # prints version of symfony console
 run psql                        # connects psql to your database using containers
-run project                     # alias for `docker-compose -p pra up -d`
+run project                     # alias for `docker-compose -p app up -d`
 run composer                    # alias for running composer (with php7 in separate docker container)
 run phpspec                     # alias for running PhpSpec
 run behat                       # alias for running Behat in test environment
