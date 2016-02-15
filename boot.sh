@@ -9,11 +9,10 @@ fi
 
 # Wait for postgres to start
 
-host=$DATABASE_PORT_5432_TCP_ADDR
-port=$DATABASE_PORT_5432_TCP_PORT
+host=database
+port=5432
 
 echo -n "waiting for TCP connection to database:..."
-
 while ! nc -z -w 1 $host $port 2>/dev/null
 do
   echo -n "."

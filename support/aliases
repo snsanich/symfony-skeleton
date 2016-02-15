@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+
+
+compose="docker-compose -p app"
+echo $compose
+aliasName=$1
+
+case $aliasName in
+compose)
+    $compose "${*:2}"
+    ;;
+psql)
+    $compose run database sh -c 'exec psql -h database -p 5432 -U $POSTGRES_USER'
+    ;;
+project)
+    $compose up -d
+    ;;
+php)
+    $compose run --no-deps php $@
+    ;;
+console)
+    $compose run --no-deps php app/console "${*:2}"
+    ;;
+phpspec)
+    $compose run --no-deps php bin/phpspec "${*:2}"
+    ;;
+behat)
+    $compose -f docker-compose.yml -f devops/docker-compose.test.yml run --no-deps php bin/behat "${*:2}"
+    ;;
+*)
+    echo "unknown alias \"$aliasName\""
+    ;;
+esac
+
+exit 0
