@@ -2,12 +2,11 @@
 
 
 compose="docker-compose -p app"
-echo $compose
 aliasName=$1
 
 case $aliasName in
-compose)
-    $compose "${*:2}"
+composer)
+    docker run --rm -v `pwd`:/app composer/composer:php7 ${*:2}
     ;;
 psql)
     $compose run database sh -c 'exec psql -h database -p 5432 -U $POSTGRES_USER'
@@ -19,13 +18,13 @@ php)
     $compose run --no-deps php $@
     ;;
 console)
-    $compose run --no-deps php app/console "${*:2}"
+    $compose run --no-deps php app/console ${*:2}
     ;;
 phpspec)
-    $compose run --no-deps php bin/phpspec "${*:2}"
+    $compose run --no-deps php bin/phpspec ${*:2}
     ;;
 behat)
-    $compose -f docker-compose.yml -f devops/docker-compose.test.yml run --no-deps php bin/behat "${*:2}"
+    $compose -f docker-compose.yml -f devops/docker-compose.test.yml run --no-deps php bin/behat ${*:2}
     ;;
 *)
     echo "unknown alias \"$aliasName\""
