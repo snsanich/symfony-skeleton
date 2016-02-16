@@ -12,11 +12,5 @@ class AppBundle extends Bundle
     public function build(ContainerBuilder $container)
     {
         parent::build($container);
-
-        $loader = new YamlFileLoader($container, new FileLocator([
-            __DIR__ . '/Resources/config'
-        ]));
-        $loader->load('services.yml');
     }
-
 }
