@@ -25,4 +25,4 @@ echo 'ok'
 app/console cache:clear
 app/console doctr:migration:migrate -n
 
-php-fpm
+php-fpm --allow-to-run-as-root

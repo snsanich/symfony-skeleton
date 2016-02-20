@@ -5,7 +5,10 @@ VERSION
 README.md
 Makefile
 docker-compose.yml
-devops
+support/scripts
+support/*.yml
+support/aliases
+support/env
 app/cache
 app/logs
 .env
