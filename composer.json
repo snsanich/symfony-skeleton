@@ -33,7 +33,7 @@
     },
     "scripts": {
         "post-create-project-cmd": [
-            "./devops/scripts/prepare_project"
+            "./support/scripts/prepare_project"
         ],
         "post-install-cmd": [
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
