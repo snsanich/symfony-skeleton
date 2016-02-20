@@ -6,7 +6,11 @@ aliasName=$1
 
 case $aliasName in
 composer)
-    docker run --rm -v `pwd`:/app composer/composer:php7 ${*:2}
+    docker run --rm -it \
+     -v $(pwd):/usr/src/app \
+     -v ~/.composer:/root/.composer \
+     -v ~/.ssh:/root/.ssh:ro \
+     graze/composer ${*:2}
     ;;
 psql)
     $compose run database sh -c 'exec psql -h database -p 5432 -U $POSTGRES_USER'
