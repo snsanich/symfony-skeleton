@@ -22,7 +22,7 @@ php)
     $compose run --no-deps php $@
     ;;
 console)
-    $compose run --no-deps php app/console ${*:2}
+    $compose run --no-deps php bin/console ${*:2}
     ;;
 phpspec)
     $compose run --no-deps php bin/phpspec ${*:2}

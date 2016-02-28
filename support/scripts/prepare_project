@@ -54,6 +54,10 @@ function updateComposerInfo($name, $description, $namespace) {
     unset($composer['autoload']['psr-4']['App\\']);
     $composer['autoload']['psr-4'][$namespace . '\\'] = $oldVal;
 
+    $oldVal = $composer['autoload-dev']['psr-4']['features\\App\\'];
+    unset($composer['autoload-dev']['psr-4']['features\\App\\']);
+    $composer['autoload-dev']['psr-4']['features\\' . $namespace . '\\'] = $oldVal;
+
     file_put_contents(
         $composerJson,
         json_encode($composer, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES)

@@ -2,18 +2,12 @@
 
 compose="docker-compose -p app_test -f docker-compose.yml -f support/docker-compose.test.yml"
 
-postgreHealthCheck=" \
-while ! \
-    psql -h database -p 5432 -U \$POSTGRES_USER -c \"\q\" 2> /dev/null; \
-do sleep 1; done \
-"
-
 # Run phpspec tests
 $compose run --no-deps php bin/phpspec run && \
 
 # Run integrational/E2E tests
 $compose up -d database && \
-$compose run --no-deps database timeout 10 sh -c "$postgreHealthCheck" && \
+$compose run --no-deps php bin/healthcheck 10 && \
 $compose run --no-deps php bin/behat
 
 if [ $? -eq 0 ]
