@@ -13,7 +13,8 @@ devops/roles/galaxy/*
 !app/logs/.gitkeep
 /build/
 /vendor/
-/bin/
+/bin/*
+!/bin/healthcheck
 /composer.phar
 /web/bundles/
 
