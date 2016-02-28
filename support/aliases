@@ -13,7 +13,7 @@ composer)
      graze/composer ${*:2}
     ;;
 psql)
-    $compose run database sh -c 'exec psql -h database -p 5432 -U $POSTGRES_USER'
+    $compose run -e LESS="-iMSx4 -FXR" database sh -c 'exec psql -h database -p 5432 -U $POSTGRES_USER'
     ;;
 project)
     $compose up -d
