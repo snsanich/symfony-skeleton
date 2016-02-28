@@ -1,7 +1,8 @@
 FROM php:7.0-fpm
 
 RUN apt-get update && \
-    apt-get install -y libmcrypt-dev libpq-dev netcat
+    apt-get install -y libmcrypt-dev libpq-dev netcat && \
+    rm -rf /var/lib/apt/lists/*
 
 RUN docker-php-ext-install \
         mcrypt \

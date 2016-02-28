@@ -1,4 +1,6 @@
 FROM postgres:9.4
 
-RUN apt-get update && apt-get install less
+RUN apt-get update && \
+    apt-get install less && \
+    rm -rf /var/lib/apt/lists/*
 
