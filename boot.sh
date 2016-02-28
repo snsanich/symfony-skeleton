@@ -9,7 +9,7 @@ fi
 ./bin/healthcheck 10
 
 # Prepare application
-app/console cache:clear
-app/console doctr:migration:migrate -n
+bin/console cache:clear
+bin/console doctr:migration:migrate -n
 
 php-fpm --allow-to-run-as-root

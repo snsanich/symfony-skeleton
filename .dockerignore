@@ -9,6 +9,5 @@ support/scripts
 support/*.yml
 support/aliases
 support/env
-app/cache
-app/logs
+var
 .env
