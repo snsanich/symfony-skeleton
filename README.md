@@ -70,7 +70,7 @@ To run test suites you can use `support/scripts/run_tests` script, or use phpspe
 
 ### XDebug
 
-This projects template also includes xdebug extensions for remote debugging. To debug your application in PhpStorm you should configure remote server and []set path mapping](https://www.jetbrains.com/phpstorm/help/override-server-path-mappings-dialog.html) to `/srv` directory.
+This projects template also includes xdebug extensions for remote debugging. To debug your application in PhpStorm you should configure remote server and [set path mapping](https://www.jetbrains.com/phpstorm/help/override-server-path-mappings-dialog.html) to `/srv` directory.
 
 In production environment xdebug is disabled.
 
