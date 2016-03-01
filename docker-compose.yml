@@ -19,6 +19,8 @@ services:
     database:
         build: 'support/database'
         env_file: support/env/dev.env
+        environment:
+            LESS: "-iMSx4 -FXR"
         volumes:
             - dbdata:/var/lib/postgresql
 
