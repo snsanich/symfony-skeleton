@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+docker run --rm -it \
+     -v $(pwd):/app \
+     -v ~/.composer:/root/.composer \
+     -v ~/.ssh:/root/.ssh:ro \
+     --env-file ./support/env/dev.env \
+     composer/composer:php7 $@

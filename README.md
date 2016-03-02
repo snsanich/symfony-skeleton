@@ -38,24 +38,24 @@ PHP container uses `boot.sh` as default command. It runs migrations ono startup.
 
 To run Docker images you should have linux kernel. This could be a tiny problem for Mac OSX users. We recommend to use [docker-machine](https://docs.docker.com/v1.8/installation/mac/) or [dinghy](https://github.com/codekitchen/dinghy).
 
-### Aliases
+### Shortcuts
 
-To simplify your life, you can use aliases available in `support/aliases` shell script. I recommend you to add alias on your `.bashrc` or `.bash_profile`:
+To simplify your life, you can use shortcuts available in `support/shortcuts` shell script. To make it even more easy to use, just add path to this directory in your `PATH` env variable (in `.bashrc` or `.bash_profile`):
 
 ```
-alias run="./support/aliases"
+export PATH=./support/shortcuts:$PATH
 ```
 
 By doing this, you will be able to use short versions of commands:
 
 ```bash
-run php --version               # prints version of php running in container
-run console --version           # prints version of symfony console
-run psql                        # connects psql to your database using containers
-run project                     # alias for `docker-compose -p app up -d`
-run composer                    # alias for running composer (with php7 in separate docker container)
-run phpspec                     # alias for running PhpSpec
-run behat                       # alias for running Behat in test environment
+php                         # run command in php container
+console                     # symfony console running via docker container
+psql                        # connects psql to your database using containers
+compose                     # shortcut for `docker-compose -p app`. This needed until docker-compose 1.7 is released.
+composer                    # shortcut for running composer (with php7 in separate docker container)
+phpspec                     # shortcut for running PhpSpec
+behat                       # shortcut for running Behat in test environment
 ```
 
 ## Development
@@ -70,7 +70,7 @@ To run test suites you can use `support/scripts/run_tests` script, or use phpspe
 
 ### XDebug
 
-This projects template also includes xdebug extensions for remote debugging. To debug your application in PhpStorm you should configure remote server and []set path mapping](https://www.jetbrains.com/phpstorm/help/override-server-path-mappings-dialog.html) to `/srv` directory.
+This projects template also includes xdebug extensions for remote debugging. To debug your application in PhpStorm you should configure remote server and [set path mapping](https://www.jetbrains.com/phpstorm/help/override-server-path-mappings-dialog.html) to `/srv` directory.
 
 In production environment xdebug is disabled.
 
