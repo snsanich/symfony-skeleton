@@ -4,7 +4,15 @@
 /bin/*
 !/bin/healthcheck
 !/bin/console
-/var/
+
 /composer.phar
 /front/web/bundles
 !.gitkeep
+
+# deploy tmp files
+/docker-compose.prod.yml
+/prod.env
+
+# generated data
+/var/*
+front/web/api_documentation.html

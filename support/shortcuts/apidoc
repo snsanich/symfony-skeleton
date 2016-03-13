@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+docker run --rm -v `pwd`:/tmp davidonlaptop/aglio \
+    -i /tmp/app/Resources/docs/api_documentation.md \
+    -o /tmp/front/web/api_documentation.html && echo "API doc Generated"
