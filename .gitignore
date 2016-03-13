@@ -1,10 +1,13 @@
+# IDE
+.idea
+
 # Symfony specific
 /build/
 /vendor/
 /bin/*
 !/bin/healthcheck
 !/bin/console
-/var/
+/var/*
 /composer.phar
 /front/web/bundles
 !.gitkeep
