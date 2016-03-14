@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
 compose=$(dirname "$0")/compose
-compose run --no-deps php bin/phpspec $@
+compose run --user $(id -u) --rm --no-deps php bin/phpspec $@

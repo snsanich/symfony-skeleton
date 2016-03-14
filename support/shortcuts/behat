@@ -2,4 +2,4 @@
 
 compose=$(dirname "$0")/compose
 compose -f docker-compose.yml -f support/docker-compose.test.yml \
-         run --no-deps php bin/behat $@
+         run --no-deps --rm php bin/behat $@

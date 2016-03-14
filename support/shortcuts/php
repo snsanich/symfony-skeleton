@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
 
 compose=$(dirname "$0")/compose
-$($compose run --no-deps php $@)
+$compose run --user $(id -u) --no-deps php $@
+
