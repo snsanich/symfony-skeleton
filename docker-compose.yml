@@ -14,7 +14,7 @@ services:
         depends_on:
             - php
         ports:
-            - 0.0.0.0:8081:80
+            - 0.0.0.0:8080:80
 
     database:
         build: 'support/database'
