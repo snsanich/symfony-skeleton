@@ -6,7 +6,3 @@ services:
         read_only: true
         environment:
             SYMFONY_ENV: test
-
-    database:
-        image: postgres:9.4
-        volumes: []
