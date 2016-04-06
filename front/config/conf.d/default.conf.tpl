@@ -3,6 +3,12 @@ server {
     listen 80;
     server_name _;
 
+    gzip             on;
+    gzip_comp_level  1;
+    gzip_min_length  1000;
+    gzip_proxied     expired no-cache no-store private auth;
+    gzip_types       text/plain application/x-javascript application/javascript application/json text/xml text/css application/xml;
+
     location ~* ^/(_profiler|_wdt|api)(?<api_path>/.*) {
         set $api_root /srv;
         set $api_entrypoint app.php;

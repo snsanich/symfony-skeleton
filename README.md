@@ -76,20 +76,21 @@ In production environment xdebug is disabled.
 
 ## Deployment
 
-**Note**: This section doesn't cover config section yet
+TODO
 
- - Add your remote host as docker machine:
+### HTTPS support
 
-```
-docker-machine create --driver general --general-ip "$YOUR_REMOTE_HOST" your_host_name
-```
-
- - Connect docker client to remote docker demon:
+This skeleton includes config for SSL. To make your API available by https, just pass certificate and key with volumes and bind 443 port:
 
 ```
-eval "$(docker-machine env your_host_name)"
+services:
+    front:
+        ports:
+            - 80:80
+            - 443:443
+        volumes:
+            - "/certs/your_certificate.crt:/certs/domain.crt:ro"
+            - "/certs/your_private_key.key:/certs/domain.key:ro"
 ```
 
- - Run `docker-compose up -d` and that all!
-
-
+And that's it.
