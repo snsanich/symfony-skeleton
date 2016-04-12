@@ -3,6 +3,16 @@ General Backend Template Project
 
 **If you need Vagrant + Ansible version, please check [vagrant_ansible](https://github.com/intellectsoft-uk/symfony-skeleton/tree/vagrant_ansible) branch.**
 
+## Usage
+
+Well... it's basically that's simple:
+
+```
+$ composer create-project intellectsoft/backend-skeleton target-directory
+```
+
+Then simple wizart will be started to finish project configuration. It will change project name in `composer.json`, for docker-compose and set correct namespaces.
+
 ## What's included
 
 This is our day-to-day backend dev stack
