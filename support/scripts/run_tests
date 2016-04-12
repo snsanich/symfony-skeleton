@@ -14,8 +14,8 @@ $compose run --no-deps php bin/phpspec run && \
 
 # Run integration/E2E tests
 $compose up --no-deps -d database && \
-$compose run --no-deps php bin/healthcheck 10 && \
-$compose run --no-deps php bin/behat
+$compose run --rm --no-deps php bin/healthcheck 10 && \
+$compose run --rm --no-deps php bin/behat
 
 if [ $? -eq 0 ]
 then
