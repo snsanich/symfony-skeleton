@@ -58,6 +58,8 @@ function updateComposerInfo($name, $description, $namespace) {
     unset($composer['autoload-dev']['psr-4']['features\\App\\']);
     $composer['autoload-dev']['psr-4']['features\\' . $namespace . '\\'] = $oldVal;
 
+    unset($composer['scripts']['post-create-project-cmd']);
+
     file_put_contents(
         $composerJson,
         json_encode($composer, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES)
@@ -125,3 +127,5 @@ $projectNamespace = askFor(
 updateComposerInfo($projectName, $projectDescription, $projectNamespace);
 replaceNamespaces($projectNamespace);
 changeDockerComposeProjectName($projectNamespace);
+
+unlink(__FILE__);
