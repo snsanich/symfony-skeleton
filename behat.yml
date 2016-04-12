@@ -6,11 +6,9 @@ default:
     suites:
 
         sessions:
-            paths:    [ %paths.base%/features/sessions ]
+            paths:    [ "%paths.base%/features/sessions" ]
             contexts:
-#                - features\PRA\Context\SessionContext:
-#                    userManager: @app_user_manager
-#                    userRepository: @app_user_repository
+              - features\App\Context\SessionContext: []
 
     formatters:
         pretty: true

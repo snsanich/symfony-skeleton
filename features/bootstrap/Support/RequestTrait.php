@@ -1,6 +1,6 @@
 <?php
 
-namespace features\PRA\Support;
+namespace features\App\Support;
 
 use Fesor\JsonMatcher\JsonMatcher;
 use Symfony\Component\HttpFoundation\Request;

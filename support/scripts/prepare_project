@@ -58,6 +58,8 @@ function updateComposerInfo($name, $description, $namespace) {
     unset($composer['autoload-dev']['psr-4']['features\\App\\']);
     $composer['autoload-dev']['psr-4']['features\\' . $namespace . '\\'] = $oldVal;
 
+    unset($composer['scripts']['post-create-project-cmd']);
+
     file_put_contents(
         $composerJson,
         json_encode($composer, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES)
@@ -67,8 +69,12 @@ function updateComposerInfo($name, $description, $namespace) {
 function replaceNamespaces($namespaces) {
     $phpPairs = [
         'namespace App' => 'namespace ' . $namespaces,
+        'namespace features\\App' => 'namespace features\\' . $namespaces,
         'use App' => 'use ' . $namespaces,
+        'use features\\App' => 'use features\\' . $namespaces,
         'new App\\' => 'new ' . $namespaces . '\\',
+        '- features\\App' => '- features\\' . $namespaces,
+        ': App' => ': '. $namespaces
     ];
 
     $yamlPairs = [
@@ -77,11 +83,26 @@ function replaceNamespaces($namespaces) {
 
     $files = [
         __DIR__ . '/../../app/AppKernel.php',
-        __DIR__ . '/../../src/AppBundle.php'
+        __DIR__ . '/../../src/AppBundle.php',
+        __DIR__ . '/../../features/bootstrap/Context/SessionContext.php',
+        __DIR__ . '/../../features/bootstrap/Support/DoctrineHelperTrait.php',
+        __DIR__ . '/../../features/bootstrap/Support/RequestTrait.php',
+        __DIR__ . '/../../behat.yml',
+        __DIR__ . '/../../phpspec.yml'
     ];
     foreach ($files as $file) {
         file_put_contents($file, strtr(file_get_contents($file), $phpPairs));
     }
+}
+
+function changeDockerComposeProjectName($projectName)
+{
+    $projectName = strtolower($projectName);
+
+    $file = __DIR__ . '/../../.env';
+    file_put_contents($file, strtr(file_get_contents($file), [
+        'COMPOSE_PROJECT_NAME=skeleton' => 'COMPOSE_PROJECT_NAME=' . $projectName
+    ]));
 }
 
 $projectName = askFor('Project Name [intellectsoft/app]', 'intellectsoft/app', function ($val) {
@@ -105,3 +126,6 @@ $projectNamespace = askFor(
 
 updateComposerInfo($projectName, $projectDescription, $projectNamespace);
 replaceNamespaces($projectNamespace);
+changeDockerComposeProjectName($projectNamespace);
+
+unlink(__FILE__);

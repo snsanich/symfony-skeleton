@@ -2,12 +2,19 @@ version: "2"
 
 services:
     php:
-        tty: true
         env_file: support/env/dev.env
-        environment:
-            SYMFONY_ENV: test
         volumes:
             - '.:/srv'
 
+    front:
+        ports:
+            - 0.0.0.0:8080:80
+
     database:
         env_file: support/env/dev.env
+        volumes:
+            - dbdata:/var/lib/postgresql
+
+volumes:
+    dbdata:
+        driver: local

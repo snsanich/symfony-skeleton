@@ -2,4 +2,3 @@
 
 compose=$(dirname "$0")/compose
 $compose run --user $(id -u) --no-deps php $@
-

@@ -1,14 +1,21 @@
 #!/usr/bin/env bash
 
-compose="docker-compose -p app_test -f docker-compose.yml -f support/docker-compose.test.yml"
+# setup project name
+set -a
+[ -f .env ] && . .env
+set +a
+
+COMPOSE_PROJECT_NAME="{$COMPOSE_PROJECT_NAME}_test"
+
+compose="docker-compose -f docker-compose.yml -f support/docker-compose.test.yml"
 
 # Run phpspec tests
 $compose run --no-deps php bin/phpspec run && \
 
-# Run integrational/E2E tests
-$compose up -d database && \
-$compose run --no-deps php bin/healthcheck 10 && \
-$compose run --no-deps php bin/behat
+# Run integration/E2E tests
+$compose up --no-deps -d database && \
+$compose run --rm --no-deps php bin/healthcheck 10 && \
+$compose run --rm --no-deps php bin/behat
 
 if [ $? -eq 0 ]
 then
