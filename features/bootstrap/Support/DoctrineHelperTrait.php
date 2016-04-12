@@ -1,6 +1,6 @@
 <?php
 
-namespace features\PRA\Support;
+namespace features\App\Support;
 
 use Doctrine\ORM\Tools\SchemaTool;
 use Symfony\Component\DependencyInjection\ContainerInterface;

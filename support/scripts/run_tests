@@ -1,13 +1,19 @@
 #!/usr/bin/env bash
 
-composeCommand=$(dirname $(dirname "$0"))/shortcuts/compose
-compose="$composeCommand -f docker-compose.yml -f support/docker-compose.test.yml"
+# setup project name
+set -a
+[ -f .env ] && . .env
+set +a
+
+COMPOSE_PROJECT_NAME="{$COMPOSE_PROJECT_NAME}_test"
+
+compose="docker-compose -f docker-compose.yml -f support/docker-compose.test.yml"
 
 # Run phpspec tests
 $compose run --no-deps php bin/phpspec run && \
 
 # Run integration/E2E tests
-$compose up -d database && \
+$compose up --no-deps -d database && \
 $compose run --no-deps php bin/healthcheck 10 && \
 $compose run --no-deps php bin/behat
 
